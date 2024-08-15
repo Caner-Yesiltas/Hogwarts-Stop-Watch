@@ -10,10 +10,13 @@
   
     // Kronometreyi başlat
     function kronometreyiBaslat() {
+
         baslangicZamani = Date.now() - gecenZaman;
         
         zamanSayaci = setInterval(() => {
+
             gecenZaman = Date.now() - baslangicZamani;
+            
             zamaniGuncelle();
         }, 10);
         
