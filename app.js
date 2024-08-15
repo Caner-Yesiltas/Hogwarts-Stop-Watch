@@ -3,72 +3,54 @@ const baslatButonu = document.getElementById("start");
 const durdurButonu = document.getElementById("stop");
 const sifirlaButonu = document.getElementById("reset");
 
-// Kronometre değişkenleri
-let baslangicZamani;
+let baslangicZamani = 0;
 let gecenZaman = 0;
-let calisiyor = false;
-let animationFrameId;
+let kronometre;
 
-// Kronometreyi başlat
 function kronometreyiBaslat() {
-  if (!calisiyor) {
-    calisiyor = true;
-    baslangicZamani = Date.now() - gecenZaman;
-    kronometreCalistir();
-    baslatButonu.disabled = true;
-    durdurButonu.disabled = false;
-  }
+  baslatButonu.disabled = true;
+  durdurButonu.disabled = false;
+  
+  const baslangicZamani = Date.now() - gecenZaman; // kronometre 1 sn once basladi ve bitti demek 
+  
+  kronometre = setInterval(() => {
+    
+    gecenZaman = Date.now() - baslangicZamani;  //date now suan sayama basla demek baslangic zamani hep zaten 0 demek 
+    zamaniGuncelle();
+  }, 10); // Her 10 milisaniyede bir fonksiyonu calistirir ve calisan degerleri gecenzaman degiskenine atar degerler surekli degisir
+  //setintervalin aldigi deger gecen zamanin icinde birikir. biriken deger zamaniguncelle fonksiyonunda kullanilir
 }
 
-// Kronometreyi durdur
 function kronometreyiDurdur() {
-  if (calisiyor) {
-    calisiyor = false;
-    cancelAnimationFrame(animationFrameId);
-    baslatButonu.disabled = false;
-    durdurButonu.disabled = true;
-  }
+  clearInterval(kronometre);
+  baslatButonu.disabled = false;
+  durdurButonu.disabled = true;
 }
 
-// Kronometreyi sıfırla
 function kronometreyiSifirla() {
-  calisiyor = false;
-  cancelAnimationFrame(animationFrameId);
+  clearInterval(kronometre);
   gecenZaman = 0;
   zamaniGuncelle();
   baslatButonu.disabled = false;
   durdurButonu.disabled = true;
 }
 
-// Kronometreyi çalıştır
-function kronometreCalistir() {
-  if (calisiyor) {
-    gecenZaman = Date.now() - baslangicZamani;
-    zamaniGuncelle();
-    animationFrameId = requestAnimationFrame(kronometreCalistir);
-  }
-}
-
-// Gösterilen zamanı güncelle
 function zamaniGuncelle() {
   const toplamMilisaniye = gecenZaman;
-  const dakikalar = Math.floor(toplamMilisaniye / (1000 * 60));
-  const saniyeler = Math.floor((toplamMilisaniye % (1000 * 60)) / 1000);
+  const dakikalar = Math.floor(toplamMilisaniye / (1000 * 60));  //60bin milisaniye 1dk oldugu icin boluyoruz
+  const saniyeler = Math.floor((toplamMilisaniye % (1000 * 60)) / 1000); 
   const milisaniyeler = Math.floor((toplamMilisaniye % 1000) / 10);
 
   zamanGostergeElementi.innerHTML = `
-        <h1 class="text">Hogwarts <span>Saati</span> 🐦‍🔥</h1>
-        <span>${String(dakikalar).padStart(2, "0")}:</span>${String(
-    saniyeler
-  ).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}
-    `;
+    <h1 class="text">Hogwarts <span>Saati</span> 🐦‍🔥</h1>
+    <span>${String(dakikalar).padStart(2, "0")}:</span>${String(saniyeler).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}
+  `; // padstart sayinin basina 0 koyar ve 2 haneli yapar yalniz sadece stringler ile calisir bu yuzden aldigimiz dakikalar saniyeler mili saniyeler degiskenlerini 
+  // once sstringe cevirmemiz gerekiyor sonra padsttart metodunu uyguluyoruz.
 }
 
-// Olay dinleyicileri
 baslatButonu.addEventListener("click", kronometreyiBaslat);
 durdurButonu.addEventListener("click", kronometreyiDurdur);
 sifirlaButonu.addEventListener("click", kronometreyiSifirla);
 
-// Başlangıç durumu
 zamaniGuncelle();
 durdurButonu.disabled = true;
