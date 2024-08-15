@@ -13,7 +13,9 @@ align-items: center;
 
 font-style: italic;
   }
-  
+  span{
+    color: #db680a;
+  }
   #timer {
     font-size: 5rem;
     font-weight: 400;
@@ -22,6 +24,7 @@ font-style: italic;
     width: 500px;
     text-align: center;
     margin: 40px auto;
+    
   }
   
   #buttons {
@@ -31,7 +34,8 @@ font-style: italic;
   
   .text{
     font-size: 4rem;
-    color: #e09200;
+    color: #e00f00;
+    
   }
   button {
     background-color: #f88e14;
@@ -44,6 +48,7 @@ font-style: italic;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 2px 2px 10px rgba(245, 4, 4, 0.3);
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 4, 4, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 53, 46, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
 
   }
   
@@ -59,6 +64,33 @@ font-style: italic;
     cursor: default;
   }
   
+  .wizard {
+    position: absolute;
+    width: 18.75rem;
+    height: 18.75rem;
+    background-image: url('./Harry-Potter-Free-PNG.png'); /* Resminizin adını buraya yazın */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: fly 8s infinite linear;
+}
+@keyframes fly {
+    0% {
+        transform: translateX(100vw) translateY(-75vh);
+    }
+    25% {
+        transform: translateX(10vw) translateY(-25vh);
+    }
+    50% {
+        transform: translateX(25vw) translateY(25vh);
+    }
+    75% {
+        transform: translateX(40vw) translateY(35vh);
+    }
+    100% {
+        transform: translateX(-100vw) translateY(30vh);
+    }
+}
   @media (max-width: 800px) {
     #timer {
       font-size: 4rem;
@@ -70,3 +102,7 @@ font-style: italic;
       padding: 1rem 2rem;
     }
   }
+
+
+
+
