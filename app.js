@@ -7,6 +7,9 @@ let baslangicZamani = 0;
 let gecenZaman = 0;
 let kronometre;
 
+const backgroundMusic = new Audio("harry_potter_theme.mp3"); //audio js apidir
+backgroundMusic.loop = true;
+
 function kronometreyiBaslat() {
   baslatButonu.disabled = true;
   durdurButonu.disabled = false;
@@ -17,14 +20,20 @@ function kronometreyiBaslat() {
     
     gecenZaman = Date.now() - baslangicZamani;  //date now suan sayama basla demek baslangic zamani hep zaten 0 demek 
     zamaniGuncelle();
-  }, 10); // Her 10 milisaniyede bir fonksiyonu calistirir ve calisan degerleri gecenzaman degiskenine atar degerler surekli degisir
+    
+  }, 10); 
+  
+  // Her 10 milisaniyede bir fonksiyonu calistirir ve calisan degerleri gecenzaman degiskenine atar degerler surekli degisir
   //setintervalin aldigi deger gecen zamanin icinde birikir. biriken deger zamaniguncelle fonksiyonunda kullanilir
+
+  backgroundMusic.play();
 }
 
 function kronometreyiDurdur() {
   clearInterval(kronometre);
   baslatButonu.disabled = false;
   durdurButonu.disabled = true;
+  backgroundMusic.pause();
 }
 
 function kronometreyiSifirla() {
@@ -33,6 +42,8 @@ function kronometreyiSifirla() {
   zamaniGuncelle();
   baslatButonu.disabled = false;
   durdurButonu.disabled = true;
+  backgroundMusic.pause();
+  backgroundMusic.currentTime = 0;
 }
 
 function zamaniGuncelle() {
@@ -54,3 +65,5 @@ sifirlaButonu.addEventListener("click", kronometreyiSifirla);
 
 zamaniGuncelle();
 durdurButonu.disabled = true;
+
+
