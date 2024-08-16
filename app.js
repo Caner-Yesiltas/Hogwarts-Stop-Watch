@@ -54,16 +54,13 @@ function kronometreyiSifirla() {
     
     zamanGostergeElementi.textContent = `${String(dakikalar).padStart(2, "0")}:${String(saniyeler).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}`;
 }
-
   // padstart sayinin basina 0 koyar ve 2 haneli yapar yalniz sadece stringler ile calisir bu yuzden aldigimiz dakikalar saniyeler mili saniyeler degiskenlerini 
   // once sstringe cevirmemiz gerekiyor sonra padsttart metodunu uyguluyoruz.
-
 
 baslatButonu.addEventListener("click", kronometreyiBaslat);
 durdurButonu.addEventListener("click", kronometreyiDurdur);
 sifirlaButonu.addEventListener("click", kronometreyiSifirla);
 
-zamaniGuncelle();
 durdurButonu.disabled = true;
 
 
