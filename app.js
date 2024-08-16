@@ -8,7 +8,7 @@ let gecenZaman = 0;
 let kronometre;
 
 const backgroundMusic = new Audio("harry_potter_theme.mp3"); //audio js apidir
-backgroundMusic.loop = true;
+backgroundMusic.loop = true;  // loop ozelligi ses doyalarini bitince tekrar baslatir
 
 function kronometreyiBaslat() {
   baslatButonu.disabled = true;
@@ -26,14 +26,14 @@ function kronometreyiBaslat() {
   // Her 10 milisaniyede bir fonksiyonu calistirir ve calisan degerleri gecenzaman degiskenine atar degerler surekli degisir
   //setintervalin aldigi deger gecen zamanin icinde birikir. biriken deger zamaniguncelle fonksiyonunda kullanilir
 
-  backgroundMusic.play();
+  backgroundMusic.play(); // ses dosyasini baslatir
 }
 
 function kronometreyiDurdur() {
   clearInterval(kronometre);
   baslatButonu.disabled = false;
   durdurButonu.disabled = true;
-  backgroundMusic.pause();
+  backgroundMusic.pause(); //ses dosyasini durdurur
 }
 
 function kronometreyiSifirla() {
@@ -43,7 +43,7 @@ function kronometreyiSifirla() {
   baslatButonu.disabled = false;
   durdurButonu.disabled = true;
   backgroundMusic.pause();
-  backgroundMusic.currentTime = 0;
+  backgroundMusic.currentTime = 0;  // ses dosyasini baslangic noktasina dondurur
 }
 
 function zamaniGuncelle() {
@@ -53,7 +53,7 @@ function zamaniGuncelle() {
   const milisaniyeler = Math.floor((toplamMilisaniye % 1000) / 10);
 
   zamanGostergeElementi.innerHTML = `
-    <h1 class="text">Hogwarts <span>Saati</span> 🐦‍🔥</h1>
+    <h1 class="text">Hogwarts <span>Clock</span> 🐦‍🔥</h1>
     <span>${String(dakikalar).padStart(2, "0")}:</span>${String(saniyeler).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}
   `; // padstart sayinin basina 0 koyar ve 2 haneli yapar yalniz sadece stringler ile calisir bu yuzden aldigimiz dakikalar saniyeler mili saniyeler degiskenlerini 
   // once sstringe cevirmemiz gerekiyor sonra padsttart metodunu uyguluyoruz.
