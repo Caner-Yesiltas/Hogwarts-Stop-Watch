@@ -46,18 +46,18 @@ function kronometreyiSifirla() {
   backgroundMusic.currentTime = 0;  // ses dosyasini baslangic noktasina dondurur
 }
 
-function zamaniGuncelle() {
-  const toplamMilisaniye = gecenZaman;
-  const dakikalar = Math.floor(toplamMilisaniye / (1000 * 60));  //60bin milisaniye 1dk oldugu icin boluyoruz
-  const saniyeler = Math.floor((toplamMilisaniye % (1000 * 60)) / 1000); 
-  const milisaniyeler = Math.floor((toplamMilisaniye % 1000) / 10);
-
-  zamanGostergeElementi.innerHTML = `
-    <h1 class="text">Hogwarts <span>Clock</span> 🐦‍🔥</h1>
-    <span>${String(dakikalar).padStart(2, "0")}:</span>${String(saniyeler).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}
-  `; // padstart sayinin basina 0 koyar ve 2 haneli yapar yalniz sadece stringler ile calisir bu yuzden aldigimiz dakikalar saniyeler mili saniyeler degiskenlerini 
-  // once sstringe cevirmemiz gerekiyor sonra padsttart metodunu uyguluyoruz.
+  function zamaniGuncelle() {
+    const toplamMilisaniye = gecenZaman;
+    const dakikalar = Math.floor(toplamMilisaniye / (1000 * 60)); //60bin milisaniye 1dk oldugu icin boluyoruz
+    const saniyeler = Math.floor((toplamMilisaniye % (1000 * 60)) / 1000);
+    const milisaniyeler = Math.floor((toplamMilisaniye % 1000) / 10);
+    
+    zamanGostergeElementi.textContent = `${String(dakikalar).padStart(2, "0")}:${String(saniyeler).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}`;
 }
+
+  // padstart sayinin basina 0 koyar ve 2 haneli yapar yalniz sadece stringler ile calisir bu yuzden aldigimiz dakikalar saniyeler mili saniyeler degiskenlerini 
+  // once sstringe cevirmemiz gerekiyor sonra padsttart metodunu uyguluyoruz.
+
 
 baslatButonu.addEventListener("click", kronometreyiBaslat);
 durdurButonu.addEventListener("click", kronometreyiDurdur);
