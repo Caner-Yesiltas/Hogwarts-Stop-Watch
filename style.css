@@ -26,6 +26,8 @@ font-style: italic;
     text-align: center;
     margin: 4.375rem auto;
     z-index: 100;
+    
+    
  
   }
   
@@ -37,6 +39,7 @@ font-style: italic;
   .text{
     font-size: 3rem;
     color: #e00f00;
+   
    
     
   }

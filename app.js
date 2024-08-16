@@ -18,7 +18,7 @@ function kronometreyiBaslat() {
   
   kronometre = setInterval(() => {
     
-    gecenZaman = Date.now() - baslangicZamani;  //date now suan sayama basla demek baslangic zamani hep zaten 0 demek 
+    gecenZaman = Date.now() - baslangicZamani;  //date now suan sayima basla demek baslangic zamani her daim 0dir
     zamaniGuncelle();
     
   }, 10); 
@@ -37,7 +37,7 @@ function kronometreyiDurdur() {
 }
 
 function kronometreyiSifirla() {
-  clearInterval(kronometre);
+  clearInterval(kronometre); // clearinterval setinterval degerini durdurur
   gecenZaman = 0;
   zamaniGuncelle();
   baslatButonu.disabled = false;
@@ -49,7 +49,7 @@ function kronometreyiSifirla() {
   function zamaniGuncelle() {
     const toplamMilisaniye = gecenZaman;
     const dakikalar = Math.floor(toplamMilisaniye / (1000 * 60)); //60bin milisaniye 1dk oldugu icin boluyoruz
-    const saniyeler = Math.floor((toplamMilisaniye % (1000 * 60)) / 1000);
+    const saniyeler = Math.floor((toplamMilisaniye % (1000 * 60)) / 1000); //dakikalar,saniyeler,milisaniyelerin degerleri tek haneli degerlerdir
     const milisaniyeler = Math.floor((toplamMilisaniye % 1000) / 10);
     
     zamanGostergeElementi.textContent = `${String(dakikalar).padStart(2, "0")}:${String(saniyeler).padStart(2, "0")}:${String(milisaniyeler).padStart(2, "0")}`;
@@ -61,6 +61,5 @@ baslatButonu.addEventListener("click", kronometreyiBaslat);
 durdurButonu.addEventListener("click", kronometreyiDurdur);
 sifirlaButonu.addEventListener("click", kronometreyiSifirla);
 
-durdurButonu.disabled = true;
 
 
