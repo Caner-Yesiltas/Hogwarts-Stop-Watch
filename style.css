@@ -3,112 +3,128 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-    font-family: "Poppins", sans-serif;
-    display: flex;
-    flex-direction: column;
-   justify-content: flex-start;
-    min-height: 100vh;
-    overflow: hidden;
-align-items: center;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow: hidden;
+  align-items: center;
 
+  font-style: italic;
+}
+span {
+  color: #db680a;
+}
+#timer {
+  font-size: 4rem;
+  font-weight: 400;
+  text-shadow: 2px 2px #f8a5c2;
+  color: #db0a0a;
+  width: 500px;
+  text-align: center;
+  margin: 4.375rem auto;
+  z-index: 100;
+}
 
-font-style: italic;
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  font-size: 3rem;
+  color: #e00f00;
+}
+button {
+  background-color: #f88e14;
+  color: rgb(248, 5, 5);
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1.5rem 4rem;
+  margin: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px rgba(245, 4, 4, 0.3);
+  box-shadow: rgba(250, 72, 1, 0.4) 0px 5px, rgba(240, 4, 4, 0.3) 0px 10px,
+    rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 53, 46, 0.1) 0px 20px,
+    rgba(240, 46, 170, 0.05) 0px 25px;
+}
+
+button:hover {
+  background-color: #ff5709;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.8s;
+  opacity: 0.3;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.wizard {
+  position: absolute;
+  width: 18.75rem;
+  height: 18.75rem;
+  background-image: url("./Harry-Potter-Free-PNG.png"); /* Resminizin adını buraya yazın */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: fly 8s infinite linear;
+}
+
+.floating-name {
+  position: absolute;
+  width: 15rem;
+  height: 5rem;
+  background-image: url("./Harry-Potter-Transparent-File.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: floatVertical 12s infinite ease-in-out;
+}
+
+@keyframes fly {
+  0% {
+    transform: translateX(100vw) translateY(-75vh);
   }
-  span{
-    color: #db680a;
+  25% {
+    transform: translateX(10vw) translateY(-25vh);
   }
+  50% {
+    transform: translateX(25vw) translateY(25vh);
+  }
+  75% {
+    transform: translateX(40vw) translateY(35vh);
+  }
+  100% {
+    transform: translateX(-200vw) translateY(70vh);
+  }
+}
+
+@keyframes floatVertical {
+  0% {
+    transform: translateY(-100%) translateX(10vw);
+  }
+  100% {
+    transform: translateY(100vh) translateX(4vw);
+  }
+}
+@media (max-width: 800px) {
   #timer {
     font-size: 4rem;
-    font-weight: 400;
-    text-shadow: 2px 2px #f8a5c2;
-    color: #db0a0a;
-    width: 500px;
-    text-align: center;
-    margin: 4.375rem auto;
-    z-index: 100;
-    
-    
- 
+    width: 350px;
   }
-  
-  #buttons {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .text{
-    font-size: 3rem;
-    color: #e00f00;
-   
-   
-    
-  }
+
   button {
-    background-color: #f88e14;
-    color: rgb(248, 5, 5);
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 1.5rem 4rem;
-    margin: 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: 2px 2px 10px rgba(245, 4, 4, 0.3);
-    box-shadow: rgba(250, 72, 1, 0.4) 0px 5px, rgba(240, 4, 4, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 53, 46, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
 
+  .wizard,
+  .floating-name {
+    width: 12rem;
   }
-  
-  button:hover {
-    background-color: #ff5709;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    transition: 0.8s;
-    opacity: 0.3;
-  }
-  
-  button[disabled] {
-    opacity: 0.5;
-    cursor: default;
-  }
-  
-  .wizard {
-    position: absolute;
-    width: 18.75rem;
-    height: 18.75rem;
-    background-image: url('./Harry-Potter-Free-PNG.png'); /* Resminizin adını buraya yazın */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: fly 8s infinite linear;
 }
-@keyframes fly {
-    0% {
-        transform: translateX(100vw) translateY(-75vh);
-    }
-    25% {
-        transform: translateX(10vw) translateY(-25vh);
-    }
-    50% {
-        transform: translateX(25vw) translateY(25vh);
-    }
-    75% {
-        transform: translateX(40vw) translateY(35vh);
-    }
-    100% {
-        transform: translateX(-200vw) translateY(70vh);
-    }
-}
-  @media (max-width: 800px) {
-    #timer {
-      font-size: 4rem;
-      width: 350px;
-    }
-  
-    button {
-      font-size: 1.5rem;
-      padding: 1rem 2rem;
-    }
-  }
-
-
-
-
