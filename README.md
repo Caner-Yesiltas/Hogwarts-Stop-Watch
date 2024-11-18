@@ -7,7 +7,7 @@
 </div>
 
 <div align="center">
-  <img src="./assets/hogwarts-stopwatch.gif" alt="Hogwarts Stopwatch Demo" width="800"/>
+  <img src="/hogwarts-stop-watch.gif" alt="Hogwarts Stopwatch Demo" width="800"/>
 </div>
 
 ## 📌 About The Project
