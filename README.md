@@ -1,4 +1,9 @@
-# Hogwarts Stopwatch ⚡️
+
+<div align="center">
+ <h1> 
+ # Hogwarts Stopwatch ⚡️
+ </h1>
+</div>
 
 <div align="center">
   <h2>
