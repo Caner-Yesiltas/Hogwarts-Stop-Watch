@@ -1,7 +1,7 @@
 
 <div align="center">
  <h1> 
- # Hogwarts Stopwatch ⚡️
+ # Hogwarts Stopwatch 🧙‍♂️
  </h1>
 </div>
 
@@ -93,5 +93,5 @@ Project Link: [https://hogwarts-stop-watch.vercel.app/](https://hogwarts-stop-wa
 ---
 
 <div align="center">
-  Made with ⚡️ by Caner Yesiltas
+  Made with 🧙‍♂️ by Caner Yesiltas
 </div>
